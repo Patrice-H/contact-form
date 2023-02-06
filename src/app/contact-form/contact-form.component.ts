@@ -13,12 +13,12 @@ export class ContactFormComponent implements OnInit {
 
   ngOnInit(): void {
     this.formContainer = this.formBuilder.group({
-      firstName: null,
-      lastName: null,
-      companyName: null,
-      eMail: null,
-      subject: null,
-      message: null,
+      firstName: [null],
+      lastName: [null],
+      companyName: [null],
+      eMail: [null],
+      subject: [null],
+      message: [null],
     });
   }
 
