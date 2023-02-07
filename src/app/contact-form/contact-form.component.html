@@ -7,28 +7,29 @@
             <label for="lastname">Entreprise</label>
             <p class="contact-form-error hidden" id="error-lastname"></p>
           </div>
-          <input type="text" formControlName="companyName" id="companyname" required />
+          <input type="text" formControlName="companyName" id="companyname" />
         </div>
         <div class="contact-form-element">
           <div class="contact-text">
             <label for="lastname">Nom</label>
             <p class="contact-form-error hidden" id="error-lastname"></p>
           </div>
-          <input type="text" formControlName="lastName" id="lastname" required />
+          <input type="text" formControlName="lastName" id="lastname" />
         </div>
         <div class="contact-form-element">
           <div class="contact-text">
             <label for="firstname">Prénom</label>
             <p class="contact-form-error hidden" id="error-firstname"></p>
           </div>
-          <input type="text" formControlName="firstName" id="firstname" required />
+          <input type="text" formControlName="firstName" id="firstname" />
         </div>
         <div class="contact-form-element">
           <div class="contact-text">
             <label for="email">E-mail</label>
-            <p class="contact-form-error hidden" id="error-email"></p>
+            
           </div>
-          <input type="email" formControlName="eMail" id="email" required />
+          <input type="email" formControlName="eMail" id="email" />
+          <p *ngIf="formContainer.value.eMail === ''" class="contact-form-error hidden" id="error-email">essai</p>
         </div>
       </fieldset>
       <fieldset id="message">
@@ -37,19 +38,19 @@
             <label for="subject">Sujet</label>
             <p class="contact-form-error hidden" id="error-subject"></p>
           </div>
-          <input type="text" formControlName="subject" id="subject" required />
+          <input type="text" formControlName="subject" id="subject" />
         </div>
         <div class="contact-form-element">
           <div class="contact-text">
             <label for="message">Message</label>
             <p class="contact-form-error hidden" id="error-message"></p>
           </div>
-          <textarea formControlName="message" id="message" required></textarea>
+          <textarea formControlName="message" id="message" ></textarea>
         </div>
       </fieldset>
     </div>
     <div id="contact-submit">
-      <button (click)="onSubmitForm()" type="submit">Envoyer</button>
+      <button (click)="onSubmitForm()" type="submit" [disabled]="formContainer.invalid">Envoyer</button>
     </div>
   </form>
 </div>
