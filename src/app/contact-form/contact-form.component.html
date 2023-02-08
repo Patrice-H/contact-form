@@ -26,10 +26,15 @@
         <div class="contact-form-element">
           <div class="contact-text">
             <label for="email">E-mail</label>
-            
           </div>
           <input type="email" formControlName="eMail" id="email" />
-          <p *ngIf="formContainer.value.eMail === ''" class="contact-form-error hidden" id="error-email">essai</p>
+          <p
+            *ngIf="formContainer.value.eMail === ''"
+            class="contact-form-error hidden"
+            id="error1-email"
+          >
+            essai1
+          </p>
         </div>
       </fieldset>
       <fieldset id="message">
@@ -45,12 +50,18 @@
             <label for="message">Message</label>
             <p class="contact-form-error hidden" id="error-message"></p>
           </div>
-          <textarea formControlName="message" id="message" ></textarea>
+          <textarea formControlName="message" id="message"></textarea>
         </div>
       </fieldset>
     </div>
     <div id="contact-submit">
-      <button (click)="onSubmitForm()" type="submit" [disabled]="formContainer.invalid">Envoyer</button>
+      <button
+        (click)="onSubmitForm()"
+        type="submit"
+        [disabled]="formContainer.invalid"
+      >
+        Envoyer
+      </button>
     </div>
   </form>
 </div>
