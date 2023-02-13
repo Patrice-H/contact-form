@@ -1,40 +1,36 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  Validators,
+} from '@angular/forms';
 
 @Component({
   selector: 'app-contact-form',
   templateUrl: './contact-form.component.html',
   styleUrls: ['./contact-form.component.scss'],
 })
-export class ContactFormComponent implements OnInit {
-  formContainer!: FormGroup;
-  eMailRegex!: RegExp;
-  formErrors!: Boolean;
+export class ContactFormComponent {
+  //formContainer!: FormGroup;
 
-  constructor(private formBuilder: FormBuilder) {}
+  //constructor(private formBuilder: FormBuilder) {}
 
-  ngOnInit(): void {
-    this.eMailRegex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
-    this.formContainer = this.formBuilder.group({
-      firstName: [null],
-      lastName: [null],
-      companyName: [null],
-      eMail: ['', [Validators.required, Validators.pattern(this.eMailRegex)]],
-      subject: [null],
-      message: [null],
-    });
-    this.formErrors = false;
-  }
+  //ngOnInit(): void {
+  formContainer = new FormGroup({
+    firstName: new FormControl(null, []),
+    lastName: new FormControl(null, [Validators.required]),
+    companyName: new FormControl(null, [Validators.required]),
+    eMail: new FormControl(null, [
+      Validators.required,
+      Validators.pattern(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/),
+    ]),
+    subject: new FormControl(null, []),
+    message: new FormControl(null, [Validators.maxLength(255)]),
+  });
+  //}
 
   onSubmitForm(): void {
     console.log(this.formContainer.value);
-  }
-
-  isConform(): boolean {
-    if (Validators.pattern(this.eMailRegex)) {
-      return true;
-    }
-
-    return false;
   }
 }

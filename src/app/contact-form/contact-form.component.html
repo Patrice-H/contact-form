@@ -5,35 +5,58 @@
         <div class="contact-form-element">
           <div class="contact-text">
             <label for="lastname">Entreprise</label>
-            <p class="contact-form-error hidden" id="error-lastname"></p>
           </div>
-          <input type="text" formControlName="companyName" id="companyname" />
+          <input
+            type="text"
+            [formControl]="formContainer.controls.companyName"
+            id="companyname"
+          />
+          <p
+            *ngIf="formContainer.controls.companyName.hasError('required')"
+            class="contact-form-error"
+            id="error1-companyName"
+          >
+            merci de renseigner un nom d'entreprise
+          </p>
         </div>
         <div class="contact-form-element">
           <div class="contact-text">
             <label for="lastname">Nom</label>
-            <p class="contact-form-error hidden" id="error-lastname"></p>
           </div>
-          <input type="text" formControlName="lastName" id="lastname" />
+          <input
+            type="text"
+            [formControl]="formContainer.controls.lastName"
+            id="lastname"
+          />
+          <p
+            *ngIf="formContainer.controls.lastName.hasError('required')"
+            class="contact-form-error"
+            id="error1-lastName"
+          >
+            merci de renseigner votre nom
+          </p>
         </div>
         <div class="contact-form-element">
           <div class="contact-text">
             <label for="firstname">Prénom</label>
-            <p class="contact-form-error hidden" id="error-firstname"></p>
           </div>
-          <input type="text" formControlName="firstName" id="firstname" />
+          <input type="text" id="firstname" />
         </div>
         <div class="contact-form-element">
           <div class="contact-text">
             <label for="email">E-mail</label>
           </div>
-          <input type="email" formControlName="eMail" id="email" />
+          <input
+            type="email"
+            [formControl]="formContainer.controls.eMail"
+            id="email"
+          />
           <p
-            *ngIf="formContainer.value.eMail === ''"
-            class="contact-form-error hidden"
+            *ngIf="formContainer.controls.eMail.hasError('required')"
+            class="contact-form-error"
             id="error1-email"
           >
-            essai1
+            merci de renseigner votre e-mail
           </p>
         </div>
       </fieldset>
@@ -41,16 +64,25 @@
         <div class="contact-form-element">
           <div class="contact-text">
             <label for="subject">Sujet</label>
-            <p class="contact-form-error hidden" id="error-subject"></p>
           </div>
-          <input type="text" formControlName="subject" id="subject" />
+          <input type="text" id="subject" />
         </div>
         <div class="contact-form-element">
           <div class="contact-text">
             <label for="message">Message</label>
-            <p class="contact-form-error hidden" id="error-message"></p>
           </div>
-          <textarea formControlName="message" id="message"></textarea>
+          <textarea
+            id="message"
+            [formControl]="formContainer.controls.message"
+            maxlength="256"
+          ></textarea>
+          <p
+            *ngIf="formContainer.controls.message.hasError('maxlength')"
+            class="contact-form-error"
+            id="error1-message"
+          >
+            256 charactères maximum
+          </p>
         </div>
       </fieldset>
     </div>
