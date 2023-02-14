@@ -139,3 +139,23 @@ fieldset {
     right: 20px;
   }
 }
+@media screen and (max-width: 768px) {
+  fieldset {
+    position: relative;
+    margin: auto;
+    padding: 0;
+    width: 66%;
+  }
+  #contact {
+    left: inherit;
+  }
+  #contact-data {
+    grid-template-columns: 1fr;
+  }
+  #contact-submit {
+    margin-top: 10px;
+  }
+  #message {
+    right: inherit;
+  }
+}
