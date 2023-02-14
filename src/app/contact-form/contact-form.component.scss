@@ -5,6 +5,7 @@ form {
 fieldset {
   border: none;
   width: 40%;
+  max-width: 256px;
   position: absolute;
 }
 #contact {
@@ -118,18 +119,23 @@ fieldset {
   right: 0;
   top: 4px;
 }
-/*
-.contact-form-error.required::before {
-  content: "* requis";
-  position: absolute;
-  right: 0;
-  top: 4px;
-}*/
+
 @media screen and (max-width: 1280px) {
   #contact-form {
     padding: 30px;
   }
   #contact-submit {
     margin-top: 52%;
+  }
+}
+@media screen and (max-width: 992px) {
+  #contact {
+    left: 20px;
+  }
+  #contact-form {
+    width: 80%;
+  }
+  #message {
+    right: 20px;
   }
 }
