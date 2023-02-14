@@ -82,7 +82,7 @@ fieldset {
     display: none;
   }
   input.ng-invalid.ng-touched {
-    background-color: rgba(255, 0, 0, 0.1);
+    background-color: #ffeeee;
     border: 1px red solid;
   }
   input.ng-invalid.ng-touched:focus {
@@ -98,7 +98,7 @@ fieldset {
     margin: 0;
   }
   textarea.ng-invalid {
-    background-color: rgba(255, 0, 0, 0.1);
+    background-color: #ffeeee;
     border: 1px red solid;
   }
 }
