@@ -12,15 +12,10 @@ import {
   styleUrls: ['./contact-form.component.scss'],
 })
 export class ContactFormComponent {
-  //formContainer!: FormGroup;
-
-  //constructor(private formBuilder: FormBuilder) {}
-
-  //ngOnInit(): void {
   formContainer = new FormGroup({
     firstName: new FormControl(null, []),
     lastName: new FormControl(null, [Validators.required]),
-    companyName: new FormControl(null, [Validators.required]),
+    companyName: new FormControl(null, []),
     eMail: new FormControl(null, [
       Validators.required,
       Validators.pattern(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/),
@@ -28,7 +23,6 @@ export class ContactFormComponent {
     subject: new FormControl(null, []),
     message: new FormControl(null, [Validators.maxLength(255)]),
   });
-  //}
 
   onSubmitForm(): void {
     console.log(this.formContainer.value);
