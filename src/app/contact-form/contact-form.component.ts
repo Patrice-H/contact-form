@@ -14,7 +14,10 @@ import {
 export class ContactFormComponent {
   formContainer = new FormGroup({
     firstName: new FormControl(null, []),
-    lastName: new FormControl(null, [Validators.required]),
+    lastName: new FormControl(null, [
+      Validators.required,
+      Validators.pattern(/^[A-Za-z]+$/),
+    ]),
     companyName: new FormControl(null, []),
     eMail: new FormControl(null, [
       Validators.required,

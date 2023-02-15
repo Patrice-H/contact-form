@@ -33,6 +33,12 @@
             >
               merci de renseigner votre nom
             </p>
+            <p
+              *ngIf="formContainer.controls.lastName.hasError('pattern')"
+              class="contact-form-error error-message"
+            >
+              ne doit contenir que des lettres
+            </p>
           </div>
         </div>
         <div class="contact-form-element">
